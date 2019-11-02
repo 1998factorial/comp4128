@@ -9,4 +9,5 @@
 #
 # week 5 : DP , and DP with date structures
 #
+# week 6 : max-flow , binary search technique (some problem can be reduced to decision problem , and Bsearch answer , find property with monotonicity first
 # more to come !!
