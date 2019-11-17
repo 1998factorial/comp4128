@@ -161,8 +161,8 @@ int main(){
     for(int i = 1; i <= N; ++i){
       for(string k : vec[i]){
         int v = id[k];
-        g.add(i , N + v , infinity);
-        g.add(N + tot + v , N + tot * 2 + i , infinity);
+        g.add(i , N + v , 1);
+        g.add(N + tot + v , N + tot * 2 + i , 1);
       }
     }
     cout << "Case #" << q << ": ";

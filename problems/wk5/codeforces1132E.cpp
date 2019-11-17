@@ -38,8 +38,6 @@ int main(){
   for(int i = 0; i <= min(7000ll , W); ++i){
     if(dp[8][i] == -1)continue;
     ret = max(ret , i + 840ll * min((W - i) / 840 , dp[8][i]));
-    //ret = max(ret , min(W , i + 840ll * dp[8][i]));
-    // this failed....
   }
   cout << ret << endl;
   return 0;
