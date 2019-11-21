@@ -12,4 +12,7 @@
 # week 6 : max-flow , binary search technique (some problem can be reduced to decision problem , and Bsearch answer , find property with monotonicity first
 #
 # week 7 : more max-flow , dynamic programming optimization (mainly focus on convex hull trick)
+#
+# week 8 : dynamic programming optimization with D and C, when the cost is convex. (prove is on lecture slides)
+#
 # more to come !!
