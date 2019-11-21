@@ -13,6 +13,6 @@
 #
 # week 7 : more max-flow , dynamic programming optimization (mainly focus on convex hull trick)
 #
-# week 8 : dynamic programming optimization with D and C, when the cost is convex. (prove is on lecture slides)
+# week 8 : dynamic programming optimization with D and C, when the cost is convex. (prove is on lecture slides), primes algo such as sieve's and extended euclidean are told , combinatorics in DP are told, matrices and its relation with recurrences equations + fast exponential technique. 
 #
 # more to come !!
