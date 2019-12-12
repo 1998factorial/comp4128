@@ -18,25 +18,6 @@ int tin[maxn];
 int tout[maxn];
 int L , timmer;
 
-/*
-思路：先找一个MST，显然所有MST中的边已经是最优的
-对于所有没有被使用的边，将它们加入MST一定会造成cycle
-， 所以我们要在这个cycle中找到除了新加入的边以外最大的边
-cost = mst - max + new
-问题就变成在最小生成树中给定两个节点找他们的最小公共祖先，并在
-他们向公共祖先方向移动时找出路上的最大边
-使用dfs是可以在On时间内找到lca的，但是会超时
-这里我们使用倍增法
-记up[v][i] = node that v climb 2^i times can reach
-up[v][0] = parent of v
-up[v][i] = up[up[v][i - 1]][i - 1]
-dp[v][i] = maximal edge that is on the way for v to climb upwards for 2^i times.
-dp[v][0] = c(v , parent)
-dp[v][i] = max(dp[v][i - 1] , dp[up[v][i - 1]][i - 1])
-构建时间为nlogn ， query时间为logn
-问题解决
-*/
-
 int find(int i){
   return nid[i] == i ? i : nid[i] = find(nid[i]);
 }
@@ -57,8 +38,8 @@ ll MST(vector<vector<int>>& edges , vector<int>& id){
       add(u , v);
       sum += edges[x][2];
       vis.push_back(x);
-      g[u].push_back(make_pair(v , edges[x][2]));
-      g[v].push_back(make_pair(u , edges[x][2]));
+      g[u].emplace_back(v , edges[x][2]);
+      g[v].emplace_back(u , edges[x][2]);
     }
   }
   for(int x : vis)ret[x] = sum; // edges used in our first spanning tree must have sum as their solution
@@ -162,9 +143,7 @@ int main(){
     return edges[x][2] < edges[y][2];
   });
   ll cost = MST(edges , id); // compute the minimal spanning tree
-
   preprocess();
-
   for(int i = 0; i < M; ++i){
     int x = id[i];
     if(ret[x] >= inf){ // for edges that have not been included in our tree

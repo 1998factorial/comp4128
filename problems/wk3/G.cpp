@@ -16,11 +16,8 @@ unordered_map<double , int> mp;
 struct edge{
   int from , to;
   int w;
-  edge(int x , int y , int z){
-    from = x;
-    to = y;
-    w = z;
-  }
+  edge(){}
+  edge(int x , int y , int z) : from(x) , to(y) , w(z){}
 };
 
 vector<edge> edges;
@@ -38,13 +35,13 @@ void relax(){
   }
 }
 
-bool check(int k){
+bool check(){
   for(int i = 1; i <= cnt; ++i){
     dis[i] = inf;
   }
   dis[0] = 0;
   for(int i = 1; i <= cnt; ++i){
-    relax();
+    relax ();
   }
   for(int i = 0; i < edges.size(); ++i){
     int u = edges[i].from;
@@ -98,7 +95,7 @@ int main(){
   while(l < r){ // binary search answer
     int mid = (l + r) >> 1;
     init(mid);
-    if(check(mid)){
+    if(check()){
       r = mid;
     }
     else{

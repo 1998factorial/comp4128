@@ -4,11 +4,7 @@
 #include <cmath>
 using namespace std;
 typedef pair<int , int> ii;
-/*
-this problem is so hard 0-0
 
-
-*/
 const int maxn = 2e5 + 10;
 vector<int> g[maxn];
 vector<int> hightree[maxn]; // v greater than all child
